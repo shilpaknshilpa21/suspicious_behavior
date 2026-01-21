@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Suspicious Behavior Detection</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+<div class="container">
+
+  <h1>Suspicious Behavior Detection</h1>
+  <p class="subtitle">Upload CCTV footage for theft intent detection.</p>
+
+  <!-- Upload Form -->
+  <form action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data" class="upload-form">
+    <label class="file-label">
+      📁 Select Video File
+      <input type="file" name="video" accept="video/*" required>
+    </label>
+    <button class="btn" type="submit">Analyze</button>
+  </form>
+
+  {% if video_src %}
+  <h2>🎬 Processed Video</h2>
+  <p><strong>Uploaded:</strong> {{ video_name }}</p>
+
+  <video width="640" controls autoplay>
+    <source src="{{ video_src }}" type="video/mp4">
+  </video>
+
+  {% if label == "theft_suspected" %}
+  
+  <!-- Built-in low alert beep -->
+  <audio autoplay>
+    <source src="data:audio/wav;base64,UklGRlIAAABXQVZFZm10IBAAAAABAAEARKwAABCWAAACABAAZGF0YYAAAAD//wAAAP//AAD//wAA" type="audio/wav">
+  </audio>
+
+  <div class="alert alert-red flash shake">
+    🚨 ALERT: Theft Detected 🚨
+    <p>{{ message }}</p>
+  </div>
+
+  {% else %}
+
+  <div class="alert alert-green">
+    Normal Behavior
+    <p>{{ message }}</p>
+  </div>
+  
+  {% endif %}
+  {% endif %}
+
+</div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+body {
+  background: #0f0f17;
+  color: #e0e0e0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  padding: 25px;
+}
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  background: #1c1c2b;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid #3f3f55;
+}
+
+h1 { color: #86e1ff; }
+.subtitle { color: #9da0b8; margin-bottom: 15px; }
+
+.upload-form { margin: 15px 0; }
+
+.file-label {
+  background: #222;
+  border: 1px solid #444;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+.file-label input { display: none; }
+
+.btn {
+  background: #007bff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.btn:hover { background: #3098ff; }
+
+/* Alert Boxes */
+.alert {
+  margin-top: 20px;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 12px;
+}
+
+.alert-red {
+  background: rgba(255, 0, 0, 0.25);
+  border: 2px solid red;
+  color: #ffd1d1;
+}
+
+.alert-green {
+  background: rgba(0, 255, 120, 0.25);
+  border: 2px solid #00ff88;
+  color: #d2ffe7;
+}
+
+/* Flash Animation */
+.flash {
+  animation: flash 1s infinite;
+}
+@keyframes flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* Shake Effect */
+.shake {
+  animation: shake .25s infinite;
+}
+@keyframes shake {
+  0%, 100% { transform: translate(0); }
+  25% { transform: translate(-3px); }
+  50% { transform: translate(3px); }
+  75% { transform: translate(-3px); }
+}
